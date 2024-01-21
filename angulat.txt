@@ -1,4 +1,14 @@
+Github
+>git init
+>git add .
+>git commit -m "first push"
+>git remote add origin https://github.com/AKHILE5H/sample.git
+>git push -u origin master
+
+
 npm install -g @angular/cli
 ng new hello-world
 cd hello-world
 ng serve 
+
+ng new my-app --no-standalone --routing --ssr=false
