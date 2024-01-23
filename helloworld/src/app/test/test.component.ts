@@ -17,18 +17,38 @@ import { Component } from '@angular/core';
     <!-- PROPERTY BINDING -->
     <input type="text" [id]="myid" [disabled]="boolvalue" value="Akhilesh">
     <input type="text" id={{myid}} bind-disabled="boolvalue" value="Akhilesh">
-    
-
     <!-- interpolation only works with string value so we use property binding by using [] -->
 
+    <!-- CLASS BINDING -->
+    <h2 class="text-success">Codevolution</h2>
+    <h2 [class] ="successClass"> Codevolution</h2>
+    <h2 class="text-danger" [class] ="successClass"> Codevolution </h2>  <!--  danger will be applied -->
+    <h2 [class.text-danger] ="hasError">Codevolution</h2>
+    <h2 [ngClass] ="messageClasses">Codevolution</h2>
+
   `,
-  styles: ['p { color: red; }']
+  styles: [`
+      .text-success {
+      color: green;
+      }
+      .text-danger {
+      color: red;
+      }
+  
+  `]
 })
 export class TestComponent {
   public name = "Akhilesh";
   public myid = "testid";
+  public successClass = "text-success"
   public boolvalue = false;
+  public hasError = true;
   siteurl = window.location.href;
+
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    }
 
 
   greetuser(){
